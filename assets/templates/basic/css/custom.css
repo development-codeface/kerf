@@ -1,0 +1,14 @@
+
+
+ .show-filter{
+  display: none;
+}
+@media(max-width:767px){
+  .responsive-filter-card{
+      display: none;
+      transition: none;
+  }
+  .show-filter{
+      display: block;
+  }
+}

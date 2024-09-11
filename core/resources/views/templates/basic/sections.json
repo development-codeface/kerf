@@ -1,0 +1,198 @@
+{
+    "banner": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Banner Section",
+        "element": {
+            "images":{
+                "image":{
+                    "size":"1150x700"
+                }
+            },
+            "heading": "text",
+            "subheading": "text",
+            "modal": true
+        }
+    },
+    "breadcrumb": {
+        "builder": true,
+        "no_selection":true,
+        "name": "Breadcrumb Section",
+        "content": {
+            "images":{
+                "image":{
+                    "size":"1150x700"
+                }
+            }
+        }
+    },
+    "department": {
+        "builder": true,
+        "name": "Department Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        }
+    },
+    "doctor": {
+        "builder": true,
+        "name": "Doctor Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        }
+    },
+    "search": {
+        "builder": true,
+        "name": "Search Section",
+        "content": {
+            "images":{
+                "image":{
+                    "size":"1600x640"
+                }
+            },
+            "heading": "text",
+            "subheading": "text"
+        }
+    },
+    "faq": {
+        "builder": true,
+        "name": "FAQ Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        },
+        "element": {
+            "question": "text",
+            "answer": "textarea",
+            "modal": false
+        }
+    },
+    "partner": {
+        "builder": true,
+        "name": "Partner Section",
+        "element": {
+            "images":{
+                "image":{
+                    "size":"120x48"
+                }
+            },
+            "name": "text",
+            "url": "text",
+            "modal": true
+        }
+    },
+    "map": {
+        "builder": false,
+        "name": "Map Section"
+    },
+
+    "testimonial": {
+        "builder": true,
+        "name": "Testimonial Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        },
+        "element": {
+            "images":{
+                "image":{
+                    "size":"80x80"
+                }
+            },
+            "name": "text",
+            "designation": "text",
+            "quote": "textarea",
+            "modal": true
+        }
+    },
+
+    "footer": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Footer Section",
+        "content": {
+            "images":{
+                "emergency_contact_image":{
+                    "size":"45x40"
+                },
+                "emergency_email_image":{
+                    "size":"45x40"
+                }
+            },
+            "emergency_contact": "text",
+            "emergency_email": "text",
+            "footer_details": "textarea"
+        }
+
+    },
+    "subscribe": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Subscribe Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        }
+    },
+
+    "contact_us": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Contact Us",
+        "content": {
+            "heading": "text",
+            "subheading": "text",
+            "google_map_key": "text",
+            "latitude": "text",
+            "longitude": "text"
+        },
+        "element": {
+            "title": "text",
+            "contact_icon": "icon",
+            "content":"text",
+            "modal":true
+        }
+    },
+    "social_icon": {
+        "builder": true,
+        "no_selection": true,
+        "name": "Social Icons",
+        "element": {
+            "title": "text",
+            "social_icon": "icon",
+            "url": "text",
+            "modal": false
+        }
+    },
+    "feature": {
+        "builder": true,
+        "name": "Feature Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        }
+    },
+
+    "blog": {
+        "builder": true,
+        "name": "Blog Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        },
+        "element": {
+            "images":{
+                "blog_image":{
+                    "size":"730x400"
+                }
+            },
+            "title": "text",
+            "category": "text",
+            "description_nic": "textarea-nic",
+            "modal": false
+        }
+    }
+
+
+}
