@@ -70,8 +70,7 @@ trait AppointmentManager
     public function store(Request $request, $id)
     {
         $this->validation($request);
-        // print_r($request);
-        
+
         // echo $request->re_visit ?  $request->re_visit: 'not selected' ;
         // exit;
         $doctor = Doctor::active()->find($id);
@@ -158,8 +157,8 @@ trait AppointmentManager
             $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
                 $gate->where('status', Status::ENABLE);
             })->with('method')->orderby('method_code')->get();
-            // $fees     = $request->re_visit ?  $doctor->revisit_fees: $doctor->fees ;
-            $fees     = $doctor->fees;
+            $fees     = $request->re_visit ?  $doctor->revisit_fees: $doctor->fees ;
+            // $fees     = $doctor->fees;
             $doctorId = $doctor->id;
             $trx      = $appointment->trx;
             $email    = $request->email;

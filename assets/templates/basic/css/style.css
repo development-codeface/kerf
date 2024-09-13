@@ -3279,7 +3279,7 @@ a:active {
   color: white !important;
 }
 .overview-booking-area .clearfix li a.disabled {
-  background-color: #003367 !important;
+  background-color: #ff8686 !important;
   color: white !important;
   cursor: not-allowed;
 }
