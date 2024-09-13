@@ -116,6 +116,10 @@
                             <span class="age"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+                        @lang('OP Number') :
+                            <span class="op_number"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
                             @lang('Fees') :
                             <span class="appointment_fees"></span>
                         </li>
@@ -173,6 +177,7 @@
                 $('.bookingDate').text(resourse.booking_date);
                 $('.timeSerial').text(resourse.time_serial);
                 $('.age').text(resourse.age);
+                $('.op_number').text(resourse.op_number);
                 $('.appointment_fees').text(resourse.doctor.fees + ' ' + `{{ $general->cur_text }}`);
                 $('.disease').text(resourse.disease);
 

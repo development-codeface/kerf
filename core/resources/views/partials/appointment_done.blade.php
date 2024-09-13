@@ -37,6 +37,11 @@
                         @lang('Fees') :
                         <span class="appointment_fees"></span>
                     </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+                        @lang('OP Number') :
+                        <span class="op_number"></span>
+                    </li>
+                    
                     <li class="list-group-item align-items-center fw-bold">
                         @lang('Disease') :
                         <p class="disease text-end"></p>
@@ -72,13 +77,14 @@
                 var modal = $('#detailModal');
                 var resourse = $(this).data('resourse');
 
-
+conso.log(resourse);
                 $('.name').text(resourse.name);
                 $('.email').text(resourse.email);
                 $('.mobile').text(resourse.mobile);
                 $('.bookingDate').text(resourse.booking_date);
                 $('.timeSerial').text(resourse.time_serial);
                 $('.age').text(resourse.age);
+                $('.op_number').text(resourse.op_number);
                 $('.appointment_fees').text(resourse.doctor.fees + ' ' + `{{ $general->cur_text }}`);
                 $('.disease').text(resourse.disease);
 

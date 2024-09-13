@@ -219,6 +219,9 @@
                                                         <h6 class="title">@lang('Re-visit')</h6>
                                                        
                                                     </div>
+                                                    <div class="overview-date-select">
+                                                       <input type="text" name="op_number" placeholder="Enter OP Number" id="op_number" />
+                                                    </div>
                                                 </div>
 
                                             </div>
@@ -356,6 +359,9 @@
     }
     #booking_date{margin-left: 70px;}
     #re_visit{vertical-align: text-top;margin-top: -2px;}
+    #op_number{
+        padding: 5px;
+        vertical-align: text-bottom;}
 </style>
 @endpush
 
@@ -370,13 +376,16 @@
         });
 
         $('#re-feeli').hide();
+        $('#op_number').hide();
         $('#re_visit').on('change', function() {
             if ($(this).is(':checked')) {
             $('#feeli').hide();
             $('#re-feeli').show();
+            $('#op_number').show();
             } else {
             $('#re-feeli').hide();
             $('#feeli').show();
+            $('#op_number').hide();
             }
         });
 

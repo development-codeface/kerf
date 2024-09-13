@@ -147,6 +147,10 @@ trait AppointmentManager
             $appointment->try  = Status::YES;
         }
 
+        
+        $opnumber = $request->re_visit ?  $request->op_number: '' ;
+        $appointment->op_number          =  $opnumber;
+        
         $appointment->save();
 
         if ($gateways) {
