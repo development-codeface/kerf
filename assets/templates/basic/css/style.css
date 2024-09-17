@@ -4640,3 +4640,11 @@ body {
 .successsPayment h2 {
   text-align: center;
 }
+
+.detailspay {
+  text-align: center;
+  text-transform: uppercase;
+}
+.booking-list li:last-child {
+  display: none;
+}

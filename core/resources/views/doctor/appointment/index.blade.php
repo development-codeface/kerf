@@ -42,6 +42,7 @@
                                             <td> @php  echo $appointment->serviceBadge;  @endphp </td>
                                         @endif
                                         <td>
+                                        <!-- @lang('Details') -->
                                             <div class="button--group">
                                                 <button class="btn btn-sm btn-outline--primary detailBtn"
                                                     data-route="{{ route('admin.appointment.dealing', $appointment->id) }}"
@@ -129,12 +130,12 @@
                         </li>
                     </ul>
                     <hr>
-                    <div>
+                    <!-- <div>
                         <p class="text--warning text-center"><i class="las la-exclamation-triangle"></i> @lang('Are you sure that the patient has paid')?
                         </p>
                         <p class="text-center text--success"><i class="las la-exclamation-triangle"></i> @lang('If yes, then you can mark this as service done').
                         </p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="modal-footer">

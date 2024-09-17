@@ -11,7 +11,7 @@
 
                 <div class="card custom--card">
                     <div class="card-header">
-                        <h5 class="card-title">@lang('Appointment Amount Deposit')</h5>
+                        <h5 class="card-title">@lang('Appointment Amount')</h5>
                     </div>
                     <div class="card-body">
                         <div class="form-group">

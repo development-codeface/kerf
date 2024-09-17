@@ -203,7 +203,8 @@ trait AppointmentManager
     {
         $appointment =  Appointment::findOrFail($id);
 
-        if ($appointment->is_complete == Status::APPOINTMENT_INCOMPLETE && $appointment->payment_status != Status::APPOINTMENT_PAID_PAYMENT) {
+        // if ($appointment->is_complete == Status::APPOINTMENT_INCOMPLETE && $appointment->payment_status != Status::APPOINTMENT_PAID_PAYMENT) {
+        if ($appointment->is_complete == Status::APPOINTMENT_INCOMPLETE ) {   
             $appointment->is_complete = Status::APPOINTMENT_COMPLETE;
 
             if ($appointment->payment_status == Status::APPOINTMENT_CASH_PAYMENT) {
@@ -218,7 +219,7 @@ trait AppointmentManager
             return back()->withNotify($notify);
 
         } else {
-            $notify[] = ['error', 'Something is wrong!'];
+            $notify[] = ['error', 'Something is wrong koooo!'];
             return back()->withNotify($notify);
         }
     }

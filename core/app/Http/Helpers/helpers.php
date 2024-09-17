@@ -16,8 +16,8 @@ use Illuminate\Support\Str;
 
 function systemDetails()
 {
-    $system['name'] = 'docrib';
-    $system['version'] = '2.0';
+    $system['name'] = '';
+    $system['version'] = '';
     $system['build_version'] = '4.4.1';
     return $system;
 }
