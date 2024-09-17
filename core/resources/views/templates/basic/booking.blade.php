@@ -222,6 +222,7 @@
                                                     <div class="overview-date-select">
                                                        <input type="text" name="op_number" placeholder="Enter OP Number" id="op_number" />
                                                     </div>
+                                                    <div class="overview-date-select" id="op_error"></div>
                                                 </div>
 
                                             </div>
@@ -375,17 +376,37 @@
             $('.book-time').text($(this).data('value'));
         });
 
+        
+
         $('#re-feeli').hide();
         $('#op_number').hide();
         $('#re_visit').on('change', function() {
             if ($(this).is(':checked')) {
-            $('#feeli').hide();
-            $('#re-feeli').show();
-            $('#op_number').show();
+                if($('#op_number').val() == ""){ //alert()
+                    $('button[type="submit"]').prop("disabled", true);
+                }else{
+                    $('button[type="submit"]').prop("disabled", false);
+                }
+                
+                $('#feeli').hide();
+                $('#re-feeli').show();
+                $('#op_number').show();
             } else {
-            $('#re-feeli').hide();
-            $('#feeli').show();
-            $('#op_number').hide();
+                $('button[type="submit"]').prop("disabled", false);
+                $('#re-feeli').hide();
+                $('#feeli').show();
+                $('#op_number').hide();
+                $('#op_error').text("");
+            }
+        });
+        $('#op_number').on('keyup', function() { //alert($(this).val())
+            if($(this).val() == "" && $('#re_visit').is(':checked')){
+                $('button[type="submit"]').prop("disabled", true);
+                $('#op_error').text("Enter valid OP Number!!");
+                $('#op_error').css('color', 'red');
+            }else{
+                $('button[type="submit"]').prop("disabled", false);
+                $('#op_error').text("");
             }
         });
 

@@ -49,6 +49,7 @@ Route::controller('SiteController')->group(function () {
 Route::controller('DoctorAppointmentController')->prefix('doctors')->name('doctors.')->group(function () {
     Route::get('all', 'doctors')->name('all');
     Route::get('search', 'doctors')->name('search');
+    Route::get('success', 'paymentsuccess')->name('success');
 
     Route::get('locations/{location}', 'locations')->name('locations');
     Route::get('departments/{department}', 'departments')->name('departments');

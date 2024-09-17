@@ -4633,3 +4633,10 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+
+.successsPayment {
+  padding: 100pt 200pt 200pt;
+}
+.successsPayment h2 {
+  text-align: center;
+}

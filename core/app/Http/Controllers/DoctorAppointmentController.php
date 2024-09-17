@@ -43,6 +43,15 @@ class DoctorAppointmentController extends Controller
         return view($this->activeTemplate . 'search', compact('pageTitle', 'locations', 'departments', 'doctors'));
     }
 
+    public function paymentsuccess()
+    {
+        $pageTitle   = 'Payment Status';
+        $message   = 'Your Payment is successfull!!';
+        return view($this->activeTemplate . 'success',compact('pageTitle'));
+
+        
+    }
+
     public function departments($department)
     {
         $pageTitle   = 'Department wise Doctors';
