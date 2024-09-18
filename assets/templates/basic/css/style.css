@@ -4641,10 +4641,17 @@ body {
   text-align: center;
 }
 
-.detailspay {
-  text-align: center;
-  text-transform: uppercase;
-}
+
 .booking-list li:last-child {
   display: none;
+}
+.detailspay {
+  text-align: left;
+  text-transform: uppercase;
+  border: 1px dotted #003367;
+  padding: 10px;
+  border-radius: 5px;
+}
+.detailspay div{
+  border-bottom: 1px solid;
 }

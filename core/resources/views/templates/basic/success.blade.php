@@ -14,18 +14,18 @@
 <script>
     $(()=>{
         var jsonArray = localStorage.getItem('bookingArr');
-        var bookingArr = JSON.parse(jsonArray);
-        console.log(bookingArr);
-       
-const obj = {
-  date: '2024-09-17',
-  amt: 340,
-  time: '09:20:am',
-  name: 'dfdfd'
-};
-
-$('.detailspay').append(Object.keys(bookingArr).map(key => {
-  const value = bookingArr[key];
+        var originalObject = JSON.parse(jsonArray);
+        
+        const reorderedObject = {
+        name: originalObject.name,
+        amt: originalObject.amt,
+        date: originalObject.date,
+        time: originalObject.time
+        };
+        // var reorderedObject = { name, amt, date, time } = bookingArr;
+        console.log(reorderedObject);
+$('.detailspay').append(Object.keys(reorderedObject).map(key => {
+  const value = reorderedObject[key];
   return `<div>${key}: ${value}</div>`;
 }).join(''));
 
