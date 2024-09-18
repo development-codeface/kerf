@@ -82,12 +82,13 @@ class DoctorAppointmentController extends Controller
             return to_route('doctors.all')->withNotify($notify);
         }
         // print_r($leaves);
+        $dates = [];
         foreach ($leaves as $key => $value) {
             // echo $value;
             $startDate = Carbon::parse($value->start_date);
             $endDate = Carbon::parse($value->end_date);
 
-            $dates = [];
+            
 
             for ($date = $startDate; $date->lte($endDate); $date->addDay()) {
                 $dates[] = $date->format('Y-m-d');

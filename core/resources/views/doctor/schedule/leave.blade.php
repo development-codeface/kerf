@@ -82,7 +82,12 @@
                             <tr>
                                 <td>{{ $leave->id }}</td>
                                 <td>{{ $leave->start_date->formatLocalized('%d %B %Y') }}</td>
-                                <td>{{ $leave->end_date->formatLocalized('%d %B %Y') }} - {{ $leave->leave_days }} days ({{ $leave->leave_type }})</td>
+                                <td>{{ $leave->end_date->formatLocalized('%d %B %Y') }} - {{ $leave->leave_days+1 }} @if ($leave->leave_days+1 > 1)
+                                    days
+                                @else
+                                    day
+                                @endif 
+                                ({{ $leave->leave_type }})</td>
                                 <td>
                                     <form action="{{ route('doctor.leave.destroy', $leave->id) }}" method="post">
                                         @csrf
