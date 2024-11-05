@@ -70,8 +70,7 @@ trait AppointmentManager
     public function store(Request $request, $id)
     {
         $this->validation($request);
-        // print_r($request);
-        
+
         // echo $request->re_visit ?  $request->re_visit: 'not selected' ;
         // exit;
         $doctor = Doctor::active()->find($id);
@@ -148,6 +147,10 @@ trait AppointmentManager
             $appointment->try  = Status::YES;
         }
 
+        
+        $opnumber = $request->re_visit ?  $request->op_number: '' ;
+        $appointment->op_number          =  $opnumber;
+        
         $appointment->save();
 
         if ($gateways) {
@@ -158,8 +161,8 @@ trait AppointmentManager
             $gatewayCurrency = GatewayCurrency::whereHas('method', function ($gate) {
                 $gate->where('status', Status::ENABLE);
             })->with('method')->orderby('method_code')->get();
-            // $fees     = $request->re_visit ?  $doctor->revisit_fees: $doctor->fees ;
-            $fees     = $doctor->fees;
+            $fees     = $request->re_visit ?  $doctor->revisit_fees: $doctor->fees ;
+            // $fees     = $doctor->fees;
             $doctorId = $doctor->id;
             $trx      = $appointment->trx;
             $email    = $request->email;
@@ -200,7 +203,8 @@ trait AppointmentManager
     {
         $appointment =  Appointment::findOrFail($id);
 
-        if ($appointment->is_complete == Status::APPOINTMENT_INCOMPLETE && $appointment->payment_status != Status::APPOINTMENT_PAID_PAYMENT) {
+        // if ($appointment->is_complete == Status::APPOINTMENT_INCOMPLETE && $appointment->payment_status != Status::APPOINTMENT_PAID_PAYMENT) {
+        if ($appointment->is_complete == Status::APPOINTMENT_INCOMPLETE ) {   
             $appointment->is_complete = Status::APPOINTMENT_COMPLETE;
 
             if ($appointment->payment_status == Status::APPOINTMENT_CASH_PAYMENT) {
@@ -215,7 +219,7 @@ trait AppointmentManager
             return back()->withNotify($notify);
 
         } else {
-            $notify[] = ['error', 'Something is wrong!'];
+            $notify[] = ['error', 'Something is wrong koooo!'];
             return back()->withNotify($notify);
         }
     }

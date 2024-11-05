@@ -219,6 +219,10 @@
                                                         <h6 class="title">@lang('Re-visit')</h6>
                                                        
                                                     </div>
+                                                    <div class="overview-date-select">
+                                                       <input type="text" name="op_number" placeholder="Enter OP Number" id="op_number" />
+                                                    </div>
+                                                    <div class="overview-date-select" id="op_error"></div>
                                                 </div>
 
                                             </div>
@@ -355,28 +359,61 @@
         border-radius: 0.5rem 0 0 0.5rem !important;
     }
     #booking_date{margin-left: 70px;}
-    #re_visit{vertical-align: text-top;}
+    #re_visit{vertical-align: text-top;margin-top: -2px;}
+    #op_number{
+        padding: 5px;
+        vertical-align: text-bottom;}
 </style>
 @endpush
 
 @push('script')
 <script>
+    localStorage.removeItem('bookingArr');
     (function($) {
         "use strict";
-
+        
+        let bookingArr = {};
         $(".available-time").on('click', function() {
             $('.time').val($(this).data('value'));
             $('.book-time').text($(this).data('value'));
+            bookingArr.time = $(this).data('value');
         });
 
+        
+
         $('#re-feeli').hide();
+        $('#op_number').hide();
         $('#re_visit').on('change', function() {
             if ($(this).is(':checked')) {
-            $('#feeli').hide();
-            $('#re-feeli').show();
+                if($('#op_number').val() == ""){ //alert()
+                    $('button[type="submit"]').prop("disabled", true);
+                }else{
+                    $('button[type="submit"]').prop("disabled", false);
+                }
+                
+                $('#feeli').hide();
+                $('#re-feeli').show();
+                $('#op_number').show();
+                let numbere = $('#re-feeli').html().match(/\d+/);
+                bookingArr.amt = parseInt(numbere[0]);
             } else {
-            $('#re-feeli').hide();
-            $('#feeli').show();
+                $('button[type="submit"]').prop("disabled", false);
+                $('#re-feeli').hide();
+                $('#feeli').show();
+                $('#op_number').hide();
+                $('#op_error').text("");
+                let numbere = $('#feeli').html().match(/\d+/);
+                bookingArr.amt = parseInt(numbere[0]);
+            }
+        });
+        $('#op_number').on('keyup', function() { //alert($(this).val())
+            if($(this).val() == "" && $('#re_visit').is(':checked')){
+                $('button[type="submit"]').prop("disabled", true);
+                $('#op_error').text("Enter valid OP Number!!");
+                $('#op_error').css('color', 'red');
+            }else{
+                $('button[type="submit"]').prop("disabled", false);
+                $('#op_error').text("");
             }
         });
 
@@ -386,7 +423,7 @@
 
         $("select[name=booking_date]").on('change', function() {
             $('.date').text(`${$(this).val()}`); // Add date to view
-
+            bookingArr.date = $(this).val();
             $('.available-time').removeClass('btn--success disabled').addClass('active-time');
 
             let url = "{{ route('doctors.appointment.available.date') }}";
@@ -405,10 +442,12 @@
                     });
                 }
             });
+           
         });
 
         $("[name=name]").on('input', function() {
             $('.name').text(`${$(this).val()}`);
+            bookingArr.name = $(this).val();
         });
         $("[name=age]").on('input', function() {
             $('.age').text(`${$(this).val()}`);
@@ -429,7 +468,26 @@
             $('.payment').val($(this).data('value'));
         });
 
-
+        $('body').on('.all-sections', function(event) {
+            console.log('Event:', event.type);
+            console.log('Event target:', event.target);
+            console.log('Event current target:', event.currentTarget);
+            console.log(bookingArr);
+        });
+        $('button[type="submit"]').on('click', function(event) {
+            event.preventDefault();
+            console.log('Submit button clicked!');
+            // Perform some custom action instead of submitting the form
+            console.log(bookingArr);
+            var jsonArray = JSON.stringify(bookingArr);
+            console.log(jsonArray);
+            // Store the JSON string to local storage
+            localStorage.setItem('bookingArr', jsonArray);
+            $(this).closest('form').submit();
+        });
+        
     })(jQuery);
+
+    
 </script>
 @endpush

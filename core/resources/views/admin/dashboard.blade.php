@@ -27,7 +27,7 @@
             <div class="alert__icon bg--primary"><i class="far fa-bell"></i></div>
             <p class="alert__message">@php echo $msg; @endphp</p>
             <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">×</span>
+                <!-- <span aria-hidden="true">×</span> -->
             </button>
         </div>
     </div>

@@ -48,7 +48,8 @@ class ProcessController extends Controller
         $val['amount'] = round($deposit->final_amo * 100);
         $val['currency'] = $deposit->method_currency;
         $val['order_id'] = $order['id'];
-        $val['buttontext'] = "Pay with Razorpay";
+        // $val['buttontext'] = "Pay with Razorpay";
+        $val['buttontext'] = "Pay Now";
         $val['name'] = $deposit->doctor->username;
         $val['description'] = "Payment By Razorpay";
         $val['image'] = getImage(getFilePath('logoIcon') .'/logo.png');

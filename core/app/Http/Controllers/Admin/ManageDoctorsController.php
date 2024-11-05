@@ -99,7 +99,7 @@ class ManageDoctorsController extends Controller
             'name'          => 'required|string|max:40',
             'username'      => 'required|string|max:40|min:6|unique:doctors,username,' . $id,
             'email'         => 'required|email|string|unique:doctors,email,' . $id,
-            'mobile'        => 'required|numeric|unique:doctors,mobile,' . $id,
+            // 'mobile'        => 'required|numeric|unique:doctors,mobile,' . $id,
             'department'    => 'required||numeric|gt:0',
             'location'      => 'required||numeric|gt:0',
             'fees'          => 'required|numeric|gt:0',

@@ -13,10 +13,10 @@
                             @lang('You have to pay '):
                             <strong>{{showAmount($deposit->final_amo)}} {{__($deposit->method_currency)}}</strong>
                         </li>
-                        <li class="list-group-item d-flex justify-content-between">
+                        <!-- <li class="list-group-item d-flex justify-content-between">
                             @lang('You will get '):
                             <strong>{{showAmount($deposit->amount)}}  {{__($general->cur_text)}}</strong>
-                        </li>
+                        </li> -->
                     </ul>
                      <form action="{{$data->url}}" method="{{$data->method}}">
                         <input type="hidden" custom="{{$data->custom}}" name="hidden">

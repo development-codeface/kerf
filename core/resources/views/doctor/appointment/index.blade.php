@@ -42,6 +42,7 @@
                                             <td> @php  echo $appointment->serviceBadge;  @endphp </td>
                                         @endif
                                         <td>
+                                        <!-- @lang('Details') -->
                                             <div class="button--group">
                                                 <button class="btn btn-sm btn-outline--primary detailBtn"
                                                     data-route="{{ route('admin.appointment.dealing', $appointment->id) }}"
@@ -116,6 +117,10 @@
                             <span class="age"></span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
+                        @lang('OP Number') :
+                            <span class="op_number"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">
                             @lang('Fees') :
                             <span class="appointment_fees"></span>
                         </li>
@@ -125,12 +130,12 @@
                         </li>
                     </ul>
                     <hr>
-                    <div>
+                    <!-- <div>
                         <p class="text--warning text-center"><i class="las la-exclamation-triangle"></i> @lang('Are you sure that the patient has paid')?
                         </p>
                         <p class="text-center text--success"><i class="las la-exclamation-triangle"></i> @lang('If yes, then you can mark this as service done').
                         </p>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="modal-footer">
@@ -173,6 +178,7 @@
                 $('.bookingDate').text(resourse.booking_date);
                 $('.timeSerial').text(resourse.time_serial);
                 $('.age').text(resourse.age);
+                $('.op_number').text(resourse.op_number);
                 $('.appointment_fees').text(resourse.doctor.fees + ' ' + `{{ $general->cur_text }}`);
                 $('.disease').text(resourse.disease);
 

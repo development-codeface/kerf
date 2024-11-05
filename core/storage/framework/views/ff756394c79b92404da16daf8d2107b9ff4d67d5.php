@@ -365,7 +365,7 @@
         border-radius: 0.5rem 0 0 0.5rem !important;
     }
     #booking_date{margin-left: 70px;}
-    #re_visit{vertical-align: text-top;}
+    #re_visit{vertical-align: text-top;margin-top: -2px;}
 </style>
 <?php $__env->stopPush(); ?>
 

@@ -32,10 +32,10 @@ class PaymentController extends Controller
         }
 
         $doctor = Doctor::findOrFail($request->doctor_id);
-        if ($doctor->fees != $request->amount) {
-            $notify[] = ['error', "Sorry! Didn't permit to customize doctor fees."];
-            return back()->withNotify($notify);
-        }
+        // if ($doctor->fees != $request->amount) {
+        //     $notify[] = ['error', "Sorry! Didn't permit to customize doctor fees."];
+        //     return back()->withNotify($notify);
+        // }
 
         $gate = GatewayCurrency::whereHas('method', function ($gate) {
             $gate->where('status', Status::ENABLE);
@@ -69,6 +69,8 @@ class PaymentController extends Controller
         $data->btc_wallet      = "";
         $data->trx             = $appointment->trx;
         $data->save();
+        // echo $request->amount; exit;
+        session()->put('amount', $data->amount);
         session()->put('Track', $data->trx);
         return to_route('deposit.confirm');
     }
@@ -105,7 +107,8 @@ class PaymentController extends Controller
         $data = $new::process($deposit);
         $data = json_decode($data);
 
-
+        // print_r($data);
+        // echo $deposit->method_code;exit;
         if (isset($data->error)) {
             $notify[] = ['error', $data->message];
             return to_route(gatewayRedirectUrl())->withNotify($notify);

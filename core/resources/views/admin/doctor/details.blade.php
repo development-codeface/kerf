@@ -127,7 +127,7 @@
                                                 <span class="input-group-text">{{ $general->country_code }}</span>
                                                 <input type="number" name="mobile"
                                                     value="{{ str_replace($general->country_code, '', $doctor->mobile) }}"
-                                                    class="form-control " autocomplete="off" required>
+                                                    class="form-control " autocomplete="off" >
                                             </div>
 
                                         </div>

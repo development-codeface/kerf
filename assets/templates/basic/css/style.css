@@ -3279,7 +3279,7 @@ a:active {
   color: white !important;
 }
 .overview-booking-area .clearfix li a.disabled {
-  background-color: #003367 !important;
+  background-color: #ff8686 !important;
   color: white !important;
   cursor: not-allowed;
 }
@@ -4632,4 +4632,26 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.successsPayment {
+  padding: 100pt 200pt 200pt;
+}
+.successsPayment h2 {
+  text-align: center;
+}
+
+
+.booking-list li:last-child {
+  display: none;
+}
+.detailspay {
+  text-align: left;
+  text-transform: uppercase;
+  border: 1px dotted #003367;
+  padding: 10px;
+  border-radius: 5px;
+}
+.detailspay div{
+  border-bottom: 1px solid;
 }

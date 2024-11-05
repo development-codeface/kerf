@@ -42,6 +42,14 @@
             "subheading": "text"
         }
     },
+    "success": {
+        "builder": true,
+        "name": "Success Section",
+        "content": {
+            "heading": "text",
+            "subheading": "text"
+        }
+    },
     "search": {
         "builder": true,
         "name": "Search Section",
